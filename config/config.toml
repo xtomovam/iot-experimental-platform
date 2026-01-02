@@ -1,0 +1,82 @@
+# ===============================
+# General parameters
+# ===============================
+
+sensor_node_port = { type = "string", value = "/dev/ttyUSB0"}
+server_ip = { type = "string", value = "95.169.201.66"}
+server_port = { type = "int", value = 5000}
+experiment_name = { type = "string", value = "psbo/mid-1"}
+
+agent_type_str = { type = "string", value = "PSBO" }
+got_metric = { type = "string", value = "general" }
+read_from_serial = { type = "bool", value = true }
+
+time_step_ms = { type = "uint16_t", value = 1000 }
+num_dims = { type = "uint16_t", value = 1 }
+dim_names = { type = "string[]", value = ["light"] }
+num_states = { type = "uint16_t", value = 7 }
+states = { type = "int16_t[][]", value = [[0,1,2,3,4,5,6]] }
+
+num_aoi_buckets = { type = "int", value = 7 }
+light_buckets_max = { type = "uint16_t[]", value = [585,1170,1755,2340,2925,3510,4095] }
+max_aoi = { type = "uint16_t", value = 60 }
+
+# ===============================
+# BLE parameters
+# ===============================
+
+adv_interval_ms = { type = "uint16_t", value = 32 }
+adv_duration_ms = { type = "uint16_t", value = 96 }
+sensor_node_id = { type = "uint8_t",  value = 1 }
+sensor_node_name = { type = "string", value = "sensor_node_1" }
+gw_name = { type = "string", value = "BLE_gateway" }
+
+# ===============================
+# Agent parameters
+# ===============================
+
+max_transmissions = { type = "uint16_t", value = 1 }
+aoi_buckets_max = { type = "uint16_t[]", value = [2,8,32,60] }
+agent_saving_ms = { type = "int[]", value = [0,0,0,422,100] }
+energy_weight = { type = "float", value = 1.0 }
+got_weight = { type = "float", value = 1.0 }
+
+# ===============================
+# Energy
+# ===============================
+
+deep_sleep_mj_per_ms = { type = "float", value = 0.004867 }
+wake_up_mj_per_ms = { type = "float", value = 0.19125 }
+idle_mj_per_ms = { type = "float", value = 0.13795}
+sensing_mj_per_ms = { type = "float", value = 0.0 }
+antenna_mj_per_ms = { type = "float", value = 0.50755}
+
+sensing_interval_ms = { type = "int", value = 0 }
+wake_up_interval_ms = { type = "int", value = 69 }
+
+# ===============================
+# GoT
+# ===============================
+
+[base_values]
+type = "float[][][]"
+value = [[
+    [0,   507, 637, 352, 516, 487, 340],
+    [314, 0,   644, 308, 428, 362, 380],
+    [462, 678, 0,   340, 434, 627, 332],
+    [361, 592, 471, 0,   334, 400, 556],
+    [517, 697, 582, 506, 0,   341, 478],
+    [651, 540, 395, 521, 536, 0,   328],
+    [312, 626, 542, 583, 469, 361, 0]
+]]
+[growths]
+type = "float[][][]"
+value = [[
+    [512, 536, 666, 579, 551, 679, 456],
+    [600, 364, 626, 643, 435, 438, 691],
+    [588, 560, 530, 327, 500, 567, 347],
+    [515, 398, 659, 513, 526, 430, 304],
+    [554, 658, 692, 314, 645, 679, 362],
+    [530, 351, 687, 530, 442, 470, 335],
+    [459, 486, 385, 365, 344, 433, 583]
+]]
